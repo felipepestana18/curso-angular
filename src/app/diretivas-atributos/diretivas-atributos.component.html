@@ -1,0 +1,32 @@
+
+
+
+<ng-content select="h1"></ng-content>
+<div *ngIf="nome != 'Felipe'">
+    
+    <p [ngClass]="{'active': valor, 'disabled': !valor}">NgClass</p>
+    <p [ngStyle]="{'height': height, 'background': backgroundColor}">ngStle</p>
+</div>
+<hr>
+
+
+<input [(ngModel)]="nome">
+<button (click)="salvar()">Salvar</button>
+
+<li *ngFor="let item of list">{{item.nome | uppercase}}</li>
+
+
+
+<!--
+    muda a sintaxe do for no ng-template
+<ng-template ngFor let-item [ngForOf]="list">
+    <p>{{item.nome}}</p>
+</ng-template>
+
+-->
+
+{{date | date: 'dd/MM/yyyy'}}
+
+<ng-content select="hr"></ng-content>
+
+
