@@ -22,7 +22,9 @@ import { Component } from '@angular/core';
         <h1>{{getDados.nome}}</h1>
         <h2>{{getDados.idade}}</h2>
       </ng-template>
-      <app-output (enviarDados)="setDados($event)"></app-output>
+      <!-- <app-output (enviarDados)="setDados($event)"></app-output> -->
+      <app-food-add></app-food-add>
+      <app-food-list></app-food-list>
       <router-outlet></router-outlet>`,
   styleUrls: ['./app.component.scss']
 })
@@ -31,10 +33,10 @@ export class AppComponent {
 
   public addValue: number = 0;
 
-  public getDados: {nome: string, idade: number}  | undefined;
+  public getDados: { nome: string, idade: number } | undefined;
 
-  public add(){
-    this.addValue +=1;
+  public add() {
+    this.addValue += 1;
   }
   public setDados(event: any) {
     this.getDados = event;
