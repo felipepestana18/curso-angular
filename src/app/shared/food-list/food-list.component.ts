@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodList } from 'src/app/module/food-list';
 
 // services.
 import { FoodListService } from 'src/app/services/food-list.service';
@@ -11,14 +12,17 @@ import { FoodListService } from 'src/app/services/food-list.service';
 export class FoodListComponent implements OnInit {
 
 
-  public foodList: Array<String> = [];
+  public foodList: FoodList | any;
   // Injeção de dependecia
   constructor(private foodListService: FoodListService) { }
 
   ngOnInit(): void {
 
     // chamando o services.
-    this.foodList = this.foodListService.foodList();
+    this.foodListService.foodList().subscribe({
+      next: (res) => this.foodList = res,
+      error: (err) => err
+    })
 
     // quando tiver um evento emiti, vai esperar o retorno de sucess ou erro
     this.foodListService.emitEvent.subscribe(
