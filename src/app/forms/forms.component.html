@@ -1,0 +1,53 @@
+<form #form="ngForm">
+<label >
+    Nome:
+    <input type="text" name="Nome"  ngModel>
+</label>
+<br>
+<br>
+
+<label >
+    Feminino:
+    <input type="radio" name="sexo" value="feminino" ngModel>
+</label>
+<br>
+<br>
+
+<label >
+    Masculino:
+    <input type="radio" name="sexo" value="masculino"  ngModel>
+</label>
+<br>
+<br>
+
+<label >
+    Outros:
+    <input type="radio" name="sexo"  value="outros" ngModel>
+</label>
+<br>
+<br>
+
+
+<label >
+    C#:
+    <input type="checkbox" name="c#"  ngModel>
+</label>
+<br>
+<br>
+
+<label >
+    Vue:
+    <input type="checkbox" name="vue"  ngModel>
+</label>
+<br>
+<br>
+
+<label >
+    Angular:
+    <input type="checkbox" name="Angular" ngModel>
+</label>
+<br>
+<br>
+</form>
+
+{{ form.value | json}}

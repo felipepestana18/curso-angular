@@ -13,6 +13,10 @@ export class FoodAddComponent {
   constructor(private fooListService: FoodListService) { }
 
   public listAddItem(value: string) {
-    return this.fooListService.foodListAdd(value);
+    return this.fooListService.foodListAdd(value).subscribe(
+      res => res,
+      error => error
+
+    );
   }
 }
