@@ -1,10 +1,25 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
 <label >
     Nome:
-    <input type="text" name="Nome"  ngModel>
+    <!-- o campo desse jeito eu não consigo fazer as validações se existe valor ou não-->
+    <!-- <input type="text" name="Nome"  ngModel required> -->
+
+    <!-- Com validação -->
+    <input type="text" name="nome" #nome="ngModel" [ngModel]="nome.value" required>
+    <span *ngIf="!nome.valid && (nome.touched && nome.dirty)">
+         Invalid
+    </span>
 </label>
 <br>
 <br>
+
+<!-- diretiva para verificar se existe o valor válido.
+{{nome.valid}}
+{{nome.touched}}
+{{nome.dirty}}
+-->
+<!--Para verificar o Formulário todo-->
+<!-- {{form.valid}} -->
 
 <label >
     Feminino:
@@ -48,6 +63,21 @@
 </label>
 <br>
 <br>
+
+<!--
+<select name="comidas" ngModel>
+    <option value="">Selecione a comida</option>
+    <option value="x-salada">X-Salada</option>
+</select>
+
+-->
+
+<select name="comidas" ngModel>
+    <option value="">Selecione um alimento</option>
+    <option *ngFor="let item of listComida" [value]="item.id"> {{item.comida}}</option>
+</select>
+<br/>
 </form>
+<button type="button" [disabled]="form.invalid">Enviar dados</button>
 
 {{ form.value | json}}
