@@ -10,6 +10,7 @@ import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atr
 
 import { SharedModule } from './shared/shared.module';
 import { FormsComponent } from './forms/forms.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsComponent } from './forms/forms.component';
     DiretivasComponent,
     DiretivasEstruturaisComponent,
     DiretivasAtributosComponent,
-    FormsComponent
+    FormsComponent,
+    ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,

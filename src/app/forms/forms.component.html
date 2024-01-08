@@ -77,7 +77,8 @@
     <option *ngFor="let item of listComida" [value]="item.id"> {{item.comida}}</option>
 </select>
 <br/>
+<button [disabled]="form.invalid">Enviar dados</button>
 </form>
-<button type="button" [disabled]="form.invalid">Enviar dados</button>
+
 
 {{ form.value | json}}

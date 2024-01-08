@@ -17,10 +17,13 @@ export class FormsComponent {
     ];
 
   public submitForm(form: NgForm) {
+
     if (form.valid) {
       console.log("Form Submitted!");
-
     }
+
+
+
 
   }
 }
