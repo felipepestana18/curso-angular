@@ -1,3 +1,38 @@
-<form [formGroup]="cadastroForm">
+<form [formGroup]="cadastroForm" (ngSubmit)="SubmitForm()">
+    <label>
+        Digite o nome:
+        <input type="text" formControlName="firstName">
+        <span *ngIf="cadastroForm.get('firstName')?.errors  && (cadastroForm.get('firstName')?.dirty && cadastroForm.get('firstName')?.touched)">
+            Por favor digite o valor no campo nome
+        </span>
+    </label>
+    <br>
+    <br>
+    <label>
+        Digite o Last Name:
+        <input type="text" formControlName="lastName" >
+        <span *ngIf="cadastroForm.get('lastName')?.errors">
 
+        </span>
+    </label>
+    <br>
+    <br>
+        <label>
+        Digite o email:
+        <input type="text" formControlName="email" >
+        <span *ngIf="cadastroForm.get('email')?.errors">
+             Email Invalido!
+        </span>
+    </label>
+    <!-- <h1> {{cadastroForm.get('firstName')?.value}}</h1> -->
+
+    {{cadastroForm.get('email')?.errors | json}}
+    {{cadastroForm.get('firstName')?.errors | json}}
+    {{cadastroForm.get('firstName')?.dirty | json}}
+    {{cadastroForm.get('firstName')?.touched| json}}
+
+    {{cadastroForm.get('lastName')?.errors | json}}
+    <br>
+    <br>
+    <button [disabled]="cadastroForm.invalid">Enviar Formulário!</button>
 </form>

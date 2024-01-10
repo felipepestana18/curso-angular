@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,9 +9,19 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 
 export class ReactiveFormsComponent {
+  constructor(private formBuilder: FormBuilder) { }
 
   public cadastroForm: FormGroup = this.formBuilder.group({
-    firstName: ['']
+    firstName: ['', Validators.required],
+    lastName: ['', [Validators.minLength(5), Validators.maxLength(10)]],
+    email: ['', Validators.email]
   })
-  constructor(private formBuilder: FormBuilder) { }
+
+  public SubmitForm() {
+
+    if (this.cadastroForm.valid) {
+      console.log(this.cadastroForm.value)
+    }
+  }
+
 }
